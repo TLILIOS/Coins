@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D02837E22CA23CBC00F1C568 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02837E12CA23CBC00F1C568 /* Coin.swift */; };
+		D02837E42CA32FBD00F1C568 /* CoinAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02837E32CA32FBD00F1C568 /* CoinAPIError.swift */; };
 		D09DF5852C99E3BC005C115A /* NetWorkingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09DF5842C99E3BC005C115A /* NetWorkingApp.swift */; };
 		D09DF5872C99E3BC005C115A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09DF5862C99E3BC005C115A /* ContentView.swift */; };
 		D09DF5892C99E3BE005C115A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D09DF5882C99E3BE005C115A /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		D02837E12CA23CBC00F1C568 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		D02837E32CA32FBD00F1C568 /* CoinAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinAPIError.swift; sourceTree = "<group>"; };
 		D09DF5812C99E3BC005C115A /* NetWorking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetWorking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D09DF5842C99E3BC005C115A /* NetWorkingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkingApp.swift; sourceTree = "<group>"; };
 		D09DF5862C99E3BC005C115A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				D02837E12CA23CBC00F1C568 /* Coin.swift */,
+				D02837E32CA32FBD00F1C568 /* CoinAPIError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D02837E42CA32FBD00F1C568 /* CoinAPIError.swift in Sources */,
 				D0C6E7A22CA0DEEE00FC885C /* CoinDataService.swift in Sources */,
 				D09DF5872C99E3BC005C115A /* ContentView.swift in Sources */,
 				D09DF5B62C99F182005C115A /* CoinsViewModel.swift in Sources */,

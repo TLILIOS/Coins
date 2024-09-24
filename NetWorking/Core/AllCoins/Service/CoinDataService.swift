@@ -10,16 +10,29 @@ import Foundation
 class CoinDataService {
     private let urlString = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=30&price_change_percentage=24h"
     
-    func fetchCoins(completion: @escaping([Coin]) -> Void) {
+    func fetchCoinsWithResult(completion: @escaping(Result<[Coin], CoinAPIError>) -> Void) {
         
         guard let url = URL(string: urlString) else { return}
         URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            guard let httpResponse = response as? HTTPURLResponse else {
+//                    self.errorMassage = "Failed to get response"
+                return
+            }
+            
+            guard httpResponse.statusCode == 200 else {
+//                    self.errorMassage = "Failed to get response with status code: \(httpResponse.statusCode)"
+                return
+            }
             guard let data = data else { return }
             guard let coins = try? JSONDecoder().decode([Coin].self, from: data) else {
                 print("Failed To Decode coins")
                 return
             }
-            completion(coins)
+            completion(.success(coins))
             print("Debug: Coins Decoded \(coins)")
         }.resume()
     }
@@ -33,15 +46,7 @@ class CoinDataService {
 //                    self.errorMassage = error.localizedDescription
                 return
             }
-            guard let httpResponse = response as? HTTPURLResponse else {
-//                    self.errorMassage = "Failed to get response"
-                return
-            }
-            
-            guard httpResponse.statusCode == 200 else {
-//                    self.errorMassage = "Failed to get response with status code: \(httpResponse.statusCode)"
-                return
-            }
+           
             print("Debug: Response code is \(httpResponse.statusCode)")
             guard let data = data else { return }
             guard let jsonObject = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
