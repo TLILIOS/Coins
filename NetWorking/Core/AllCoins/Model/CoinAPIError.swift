@@ -11,7 +11,7 @@ enum CoinAPIError: Error {
     case jsonParsingFailure
     case invalidData
     case requestFailed(description: String)
-    case invalidHTTPStatus(Int)
+    case invalidStatusCode(Int)
     case unknownError(error: Error)
     
     var customDescription: String {
@@ -20,11 +20,11 @@ enum CoinAPIError: Error {
             return "JSON parsing failed"
         case .invalidData:
             return "Invalid data"
-        case .requestFailed(description: let description):
+        case let .requestFailed(description):
             return "Request Failed: \(description)"
-        case .invalidHTTPStatus(let status):
-            return "Invalid HTTP status: \(status)"
-        case .unknownError(error: let error):
+        case let .invalidStatusCode(statusCode):
+            return "Invalid status Code: \(statusCode)"
+        case let .unknownError(error):
             return "Unknown error occurred: \(error.localizedDescription)"
         }
     }
